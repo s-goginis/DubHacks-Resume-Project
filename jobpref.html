@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Job Preferences - Filter Selection</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!-- Internal CSS -->
+	<style>
+		/* Main styles for the page */
+		body {
+			font-family: 'Helvetica', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #121212;
+			/* Dark background to match the home page */
+			color: #f1f1f1;
+			/* Light text for contrast */
+		}
+
+		#header {
+			background: #1e1e1e;
+			/* Dark header background */
+			color: #fff;
+			padding: 20px 0;
+			/* Increased padding for a cleaner look */
+		}
+
+		#header #logo a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 1.8em;
+			font-weight: bold;
+			margin-left: 20px;
+		}
+
+		#nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#nav ul li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		#nav ul li a {
+			color: #bbb;
+			/* Light gray text for menu items */
+			text-decoration: none;
+		}
+
+		.button.primary {
+			background: #ff5c5c;
+			/* Bright button color similar to the sign-up button */
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 50px;
+			/* Rounded corners for a modern look */
+			text-decoration: none;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+			color: #e0e0e0;
+			/* Slightly off-white text */
+		}
+
+		.filter-section {
+			margin-bottom: 20px;
+		}
+
+		.filter-title {
+			font-size: 1.5em;
+			font-weight: bold;
+			margin-bottom: 10px;
+			color: #fff;
+			/* White titles for better visibility */
+		}
+
+		.filter-options {
+			margin-left: 20px;
+		}
+
+		.filter-options label {
+			display: block;
+			margin-bottom: 5px;
+			color: #ddd;
+			/* Light gray text */
+		}
+
+		#sidebar {
+			background: #2a2a2a;
+			/* Darker sidebar background */
+			padding: 15px;
+			border-radius: 10px;
+			margin-top: 20px;
+		}
+
+		#selected-preferences ul {
+			list-style-type: none;
+			padding-left: 0;
+		}
+
+		#selected-preferences ul li {
+			background-color: #333;
+			/* Slightly lighter background */
+			padding: 10px;
+			margin-bottom: 5px;
+			border-radius: 4px;
+		}
+
+		footer {
+			background: #1e1e1e;
+			color: #bbb;
+			padding: 20px 0;
+			text-align: center;
+		}
+
+		footer ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		footer ul li {
+			display: inline;
+			margin-right: 10px;
+		}
+
+		footer ul li a {
+			color: #bbb;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="jobs.html">Find Jobs</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#" class="button primary">Sign Up</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main Content -->
+		<div id="main" class="wrapper style1">
+			<div class="container">
+				<header class="major">
+					<h2>Select Your Job Preferences</h2>
+					<p>Use the filters below to narrow down the job listings that best match your preferences.</p>
+				</header>
+				<div class="row">
+					<div class="col-8 col-12-medium">
+
+						<!-- Filters Form -->
+						<section id="content">
+							<form id="job-preference-form">
+								<!-- Location Filter -->
+								<div class="filter-section">
+									<div class="filter-title">Location</div>
+									<div class="filter-options">
+										<label><input type="checkbox" name="location" value="Remote"> Remote</label>
+										<label><input type="checkbox" name="location" value="On-site"> On-site</label>
+										<label><input type="checkbox" name="location" value="Hybrid"> Hybrid</label>
+									</div>
+								</div>
+
+								<!-- Subject Filter -->
+								<div class="filter-section">
+									<div class="filter-title">Subject</div>
+									<div class="filter-options">
+										<label><input type="checkbox" name="subject" value="Engineering">
+											Engineering</label>
+										<label><input type="checkbox" name="subject" value="Design"> Design</label>
+										<label><input type="checkbox" name="subject" value="Marketing">
+											Marketing</label>
+										<label><input type="checkbox" name="subject" value="Data Science"> Data
+											Science</label>
+									</div>
+								</div>
+
+								<!-- Experience Filter -->
+								<div class="filter-section">
+									<div class="filter-title">Experience</div>
+									<div class="filter-options">
+										<label><input type="checkbox" name="experience" value="Entry Level"> Entry
+											Level</label>
+										<label><input type="checkbox" name="experience" value="Mid Level"> Mid
+											Level</label>
+										<label><input type="checkbox" name="experience" value="Senior Level"> Senior
+											Level</label>
+									</div>
+								</div>
+
+								<button type="button" class="button primary" onclick="updateSidebar()">Apply
+									Filters</button>
+							</form>
+						</section>
+
+					</div>
+					<div class="col-4 col-12-medium">
+
+						<!-- Sidebar -->
+						<section id="sidebar">
+							<section>
+								<h3>Your Selected Preferences</h3>
+								<div id="selected-preferences">
+									<p>No preferences selected yet.</p>
+								</div>
+							</section>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+				<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Job Finder. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Internal JavaScript -->
+	<script>
+		// JavaScript to handle the filter selection and update the sidebar
+		function updateSidebar() {
+			let selectedPreferences = '';
+			const checkboxes = document.querySelectorAll('#job-preference-form input[type="checkbox"]:checked');
+
+			// If checkboxes are selected, create a list of preferences
+			if (checkboxes.length > 0) {
+				selectedPreferences = '<ul>';
+				checkboxes.forEach((checkbox) => {
+					selectedPreferences += `<li>${checkbox.value}</li>`;
+				});
+				selectedPreferences += '</ul>';
+			} else {
+				// No preferences selected
+				selectedPreferences = '<p>No preferences selected yet.</p>';
+			}
+
+			// Update the sidebar with the selected preferences
+			document.getElementById('selected-preferences').innerHTML = selectedPreferences;
+		}
+	</script>
+</body>
+
+</html>
